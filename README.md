@@ -24,6 +24,8 @@ The Instagram Backend Application is a robust and scalable Spring Boot-based bac
 - **Language:** Java
 - **Build Tool:** Maven
 
+
+
 ## Dependencies Used
 
 - **Spring Boot (3.1.1):** The core framework for building Spring applications, providing a wide range of features, including Spring Security and Spring Data JPA.
@@ -45,6 +47,38 @@ The Instagram Backend Application is a robust and scalable Spring Boot-based bac
 Please refer to the project's `pom.xml` file for a comprehensive list of all dependencies and their respective versions.
 
 These dependencies form the foundation of the Instagram Backend Application, allowing it to deliver robust user management and social media features efficiently.
+
+  ## Dependencies Imported to Spring Initializr
+
+
+- **Spring Boot Dev Tools:** Spring Boot Dev Tools is used for hot swapping and faster development. It helps in improving the development experience.
+
+  [![Spring Boot Dev Tools](https://img.shields.io/badge/Spring%20Boot%20Dev%20Tools-2.5.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
+
+- **Spring Web:** Spring Web is the core part of the Spring Framework, providing support for building web applications. It's used for handling HTTP requests and responses.
+
+  [![Spring Web](https://img.shields.io/badge/Spring%20Web-5.3.10-brightgreen.svg)](https://spring.io/guides/gs/spring-boot/)
+
+- **Spring Data JPA:** Spring Data JPA simplifies database access with the Java Persistence API (JPA). It provides easy access to data repositories.
+
+  [![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-2.5.5-brightgreen.svg)](https://spring.io/projects/spring-data-jpa)
+
+- **MySQL Driver:** MySQL Driver is used for connecting the application to a MySQL database. It allows seamless interaction with the database.
+
+  [![MySQL Driver](https://img.shields.io/badge/MySQL%20Driver-8.0.27-brightgreen.svg)](https://dev.mysql.com/downloads/connector/j/)
+
+- **Lombok:** Lombok is a Java library that helps reduce boilerplate code by automatically generating getters, setters, and other commonly used methods.
+
+  [![Lombok](https://img.shields.io/badge/Lombok-1.18.22-brightgreen.svg)](https://projectlombok.org/)
+
+- **Validation:** The Validation framework provides validation constraints, such as @NotNull, @Size, and @Email, to enforce data integrity.
+
+  [![Validation](https://img.shields.io/badge/Validation-2.0.1-brightgreen.svg)](https://docs.oracle.com/javaee/7/api/javax/validation/constraints/package-summary.html)
+
+- **Swagger:** Swagger is used for API documentation and testing. It provides a user-friendly interface to interact with the RESTful APIs.
+
+  [![Swagger](https://img.shields.io/badge/Swagger-3.0.0-brightgreen.svg)](https://swagger.io/)
+
 
 ## Project Structure
 
@@ -186,6 +220,70 @@ The application employs a relational database design with tables for user profil
 | likeId             | INT             | Unique identifier for each like       |
 | userId             | INT             | User ID of the like creator           |
 | postId             | INT             | Post ID to which the like belongs     |
+
+
+## Database Details
+
+The Instagram Backend Application utilizes a MySQL database to persist user data, posts, comments, likes, and other relevant information. Here are the key details about the database:
+
+- **Database Engine:** MySQL
+- **Database Schema:** InstagramDB
+
+### Schema Design
+
+The application's database is designed with several tables to store various types of data:
+
+1. **Users Table (`user`):**
+
+   - Stores user profile information, including user ID, username, email, password, profile picture URL, and bio.
+   - Manages user registration, authentication, and profile management.
+
+2. **Posts Table (`post`):**
+
+   - Contains posts created by users, including post ID, user ID (foreign key), image URL, caption, and creation timestamp.
+   - Handles the creation and retrieval of user posts.
+
+3. **Comments Table (`comment`):**
+
+   - Stores comments made on posts, with fields such as comment ID, user ID (foreign key), post ID (foreign key), comment text, and creation timestamp.
+   - Manages the interaction between users on post comments.
+
+4. **Likes Table (`like`):**
+
+   - Records user likes on posts, including like ID, user ID (foreign key), post ID (foreign key), and creation timestamp.
+   - Tracks user engagement and post popularity.
+
+5. **Followers Table (`follower`):**
+
+   - Manages user following relationships, with fields for follower ID (the user who follows) and followee ID (the user being followed).
+   - Supports user interaction, such as viewing followed users' posts.
+
+### Entity Relationships
+
+The database tables are linked through foreign key relationships to maintain data integrity:
+
+- The `user` table is referenced by the `post`, `comment`, and `like` tables to associate user data with posts, comments, and likes.
+- The `follower` table establishes user-following relationships, allowing users to follow and view posts from other users.
+
+This schema design ensures that user data, posts, comments, and likes are logically organized and can be efficiently queried for various application features.
+
+### Database Configuration
+
+The database connection properties are specified in the `application.properties` file, including the database URL, username, and password. Here is an example configuration for MySQL:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/InstagramDB
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+```
+
+Make sure to replace `your_username` and `your_password` with your actual MySQL credentials.
+
+The database schema (`InstagramDB`) is automatically created based on the entity mappings defined in the application. Hibernate, coupled with Spring Data JPA, handles the database schema generation and management.
+
+Please note that the exact database configuration may vary based on your specific MySQL setup and requirements. Ensure that your MySQL server is running and accessible before launching the application.
 
 ## Data Structures Used
 
