@@ -3,7 +3,7 @@ ___
 <p align="center">
     <img alt="Java" src="https://img.shields.io/badge/Java->=8-darkblue.svg" />
     <img alt="Maven" src="https://img.shields.io/badge/maven-4.0-brightgreen.svg" />
-    <img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-3.1.3-brightgreen.svg" />
+    <img alt="Spring Boot" src="https://img.shields.io/badge/Spring Boot-3.1.4-brightgreen.svg" />
     <img alt="H2 Database" src="https://img.shields.io/badge/H2%20Database-embedded-orange.svg" />
     <img alt = "GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
     
@@ -21,26 +21,33 @@ The Instagram Backend Application is a robust and scalable Spring Boot-based bac
 ## Technologies Used
 
 - **Framework:** Spring Boot
-- **Language:** Java
+- **Language:** Java 21
+- **Database:** MySQL
 - **Build Tool:** Maven
+- **Documentation:** SpringDoc OpenAPI (Swagger UI)
+- **Email Handling:** JavaMail API
 
 
 
 ## Dependencies Used
 
-- **Spring Boot (3.1.1):** The core framework for building Spring applications, providing a wide range of features, including Spring Security and Spring Data JPA.
+The project utilizes the following dependencies:
 
-- **Spring Security:** Ensures secure authentication and authorization for API endpoints, protecting user data.
+- **Spring Boot Starter Data JPA**: Simplifies database access using Spring Data repositories.
 
-- **Spring Data JPA:** Provides support for easy interaction with the relational database, simplifying data access and persistence.
+- **Spring Boot Starter Web**: Provides support for building web applications, including RESTful APIs.
 
-- **Java (>=8):** The programming language used for developing the application, offering robust performance and compatibility.
+- **MySQL Connector/J (Runtime Dependency)**: The MySQL JDBC driver for connecting to MySQL databases.
 
-- **Maven (4.0):** The build tool used for managing project dependencies and building the application.
+- **Project Lombok (Optional)**: A library for reducing boilerplate code, such as getters and setters.
 
-- **H2 Database (Runtime Scope):** An in-memory database used for development and testing, ensuring data integrity.
+- **Spring Boot Starter Test (For Testing)**: Provides support for testing Spring Boot applications.
 
-- **Lombok (Optional):** A library that simplifies Java code by generating boilerplate code, enhancing code readability and maintainability.
+- **Springdoc OpenAPI (Swagger UI)**: Adds Swagger UI for documenting and testing API endpoints.
+
+- **Spring Boot Starter Validation**: Includes validation support for request data binding and response data rendering.
+
+- **JavaMail API**: Used for sending emails.
 
 - **Other Dependencies:** Various other dependencies are included in the `pom.xml` file for specific functionalities, such as Jackson for JSON serialization, Spring Web for web-related features, and more.
 
